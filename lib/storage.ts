@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { MongoClient, Db } from 'mongodb';
 import { DocumentItem, UserRole, SEEDED_USERS } from './types';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -17,7 +18,7 @@ const INITIAL_DOCS: DocumentItem[] = [
       <ul>
         <li><strong>Rich-Text Editing:</strong> Format headings, lists, bold, italics, underline, code blocks, and alignments.</li>
         <li><strong>Autosave & Status:</strong> Type anywhere and watch the top status badge indicate real-time debounced saving.</li>
-        <li><strong>Simulated User Switching:</strong> Use the top-right profile dropdown to switch between <em>Swati Jain</em>, <em>Alex Rivera</em>, and <em>Taylor Kim</em>.</li>
+        <li><strong>Simulated User Switching:</strong> Use the top-right profile dropdown to switch between <em>Swati Jain</em>, <em>Alex Rivera</em>, <em>Taylor Kim</em>, and <em>Jordan Lee</em>.</li>
         <li><strong>Document Sharing & Permissions:</strong> Click <strong>Share</strong> to grant access with <em>Editor</em> or <em>Viewer</em> privileges. Notice read-only mode for viewers!</li>
         <li><strong>File Upload & Import:</strong> Import <code>.txt</code> or <code>.md</code> documents into editable drafts or attach files to this document.</li>
         <li><strong>Exporting:</strong> Export documents directly to Markdown or HTML.</li>
@@ -43,6 +44,13 @@ const INITIAL_DOCS: DocumentItem[] = [
         name: "Taylor Kim",
         role: "viewer",
         addedAt: new Date(Date.now() - 3600000 * 12).toISOString()
+      },
+      {
+        userId: "usr_jordan",
+        email: "jordan@ajaia.internal",
+        name: "Jordan Lee",
+        role: "editor",
+        addedAt: new Date(Date.now() - 3600000 * 6).toISOString()
       }
     ],
     attachments: [
@@ -137,11 +145,69 @@ const INITIAL_DOCS: DocumentItem[] = [
     createdAt: new Date(Date.now() - 3600000 * 15).toISOString(),
     updatedAt: new Date(Date.now() - 3600000 * 4).toISOString(),
     lastModifiedBy: "Taylor Kim"
+  },
+  {
+    id: "doc-security-04",
+    title: "🔒 Security, Compliance & Audit Review",
+    content: `
+      <h2>Security & Compliance Audit</h2>
+      <p>Owned by <strong>Jordan Lee</strong>. Shared with <strong>Swati Jain</strong> as an <em>Editor</em>.</p>
+      <h3>Verified Policies:</h3>
+      <ul>
+        <li><strong>Role-Based Access Control:</strong> Strict separation of Owner, Editor, and Viewer privileges.</li>
+        <li><strong>Audit Trail:</strong> Version snapshots recorded with author timestamps.</li>
+        <li><strong>Multi-Format Import:</strong> Safe parsing of Markdown, HTML, and Plaintext payloads.</li>
+      </ul>
+      <blockquote>Status: Verified for assessment evaluation.</blockquote>
+    `.trim(),
+    plainText: "Security & Compliance Audit. Owned by Jordan Lee. Shared with Swati Jain...",
+    ownerId: "usr_jordan",
+    ownerEmail: "jordan@ajaia.internal",
+    ownerName: "Jordan Lee",
+    collaborators: [
+      {
+        userId: "usr_swati",
+        email: "swati2003jain@gmail.com",
+        name: "Swati Jain",
+        role: "editor",
+        addedAt: new Date(Date.now() - 3600000 * 8).toISOString()
+      }
+    ],
+    attachments: [],
+    versions: [],
+    createdAt: new Date(Date.now() - 3600000 * 10).toISOString(),
+    updatedAt: new Date(Date.now() - 3600000 * 1).toISOString(),
+    lastModifiedBy: "Jordan Lee"
   }
 ];
 
 // In-memory cache for ultra-fast operations and fallback
 let memoryDocs: DocumentItem[] | null = null;
+let mongoClient: MongoClient | null = null;
+let mongoDb: Db | null = null;
+
+async function getMongoDb(): Promise<Db | null> {
+  const uri = process.env.MONGODB_URI;
+  if (!uri) return null;
+  try {
+    try {
+      const dns = await import('dns');
+      dns.setServers(['8.8.8.8', '1.1.1.1']);
+    } catch {}
+
+    if (!mongoClient) {
+      mongoClient = new MongoClient(uri, { serverSelectionTimeoutMS: 8000 });
+      await mongoClient.connect();
+    }
+    if (!mongoDb) {
+      mongoDb = mongoClient.db(process.env.MONGODB_DB || 'doc_editor');
+    }
+    return mongoDb;
+  } catch (err) {
+    console.error("MongoDB connection error, falling back to local storage:", err);
+    return null;
+  }
+}
 
 async function ensureDataFile(): Promise<void> {
   try {
@@ -157,6 +223,24 @@ async function ensureDataFile(): Promise<void> {
 }
 
 async function readAllDocs(): Promise<DocumentItem[]> {
+  const db = await getMongoDb();
+  if (db) {
+    try {
+      const col = db.collection<DocumentItem>('documents');
+      const docs = await col.find({}, { projection: { _id: 0 } }).toArray();
+      if (docs.length > 0) {
+        memoryDocs = docs;
+        return docs;
+      }
+      // Seed if empty in MongoDB
+      await col.insertMany(INITIAL_DOCS.map(d => ({ ...d })));
+      memoryDocs = [...INITIAL_DOCS];
+      return memoryDocs;
+    } catch (err) {
+      console.error("MongoDB read failed, using fallback:", err);
+    }
+  }
+
   await ensureDataFile();
   try {
     const raw = await fs.readFile(DATA_FILE, 'utf-8');
@@ -173,6 +257,21 @@ async function readAllDocs(): Promise<DocumentItem[]> {
 
 async function writeAllDocs(docs: DocumentItem[]): Promise<void> {
   memoryDocs = docs;
+
+  const db = await getMongoDb();
+  if (db) {
+    try {
+      const col = db.collection<DocumentItem>('documents');
+      await col.deleteMany({});
+      if (docs.length > 0) {
+        await col.insertMany(docs.map(d => ({ ...d })));
+      }
+      return;
+    } catch (err) {
+      console.error("MongoDB write failed, writing locally:", err);
+    }
+  }
+
   try {
     await ensureDataFile();
     await fs.writeFile(DATA_FILE, JSON.stringify(docs, null, 2), 'utf-8');

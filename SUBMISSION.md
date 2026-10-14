@@ -4,7 +4,7 @@
 > **Candidate:** Swati Jain  
 > **Email:** [swati2003jain@gmail.com](mailto:swati2003jain@gmail.com)  
 > **Application:** Collaborative Document Editor  
-> **Live Product URL:** [https://doc-editor-ajaia.vercel.app](https://doc-editor-ajaia.vercel.app) *(or local `http://localhost:3000`)*  
+> **Live Product URL:** [https://doc-editor-coral-xi.vercel.app](https://doc-editor-coral-xi.vercel.app) *(or local `http://localhost:3000`)*  
 > **Walkthrough Video URL:** Listed in [WALKTHROUGH.md](file:///c:/Projects/doc-editor/WALKTHROUGH.md) and [WALKTHROUGH_URL.txt](file:///c:/Projects/doc-editor/WALKTHROUGH_URL.txt)
 
 ---
@@ -30,7 +30,7 @@ No registration or passwords required. Use the **Simulated User Switcher** in th
 | **Swati Jain** *(Candidate)* | `swati2003jain@gmail.com` | **Owner**: Full edit, rename, share, delete, attachment upload, and version rollback on *"✨ Welcome to Ajaia Doc Editor"*. |
 | **Alex Rivera** | `alex@ajaia.internal` | **Editor**: Can edit content on Swati's doc; owner of *"🎯 Q4 Engineering Sprint & Milestones"*. Cannot delete Swati's doc. |
 | **Taylor Kim** | `taylor@ajaia.internal` | **Viewer**: Read-only access to Swati's doc. When switched, the editor canvas is locked, toolbar is hidden, and an amber *"Read Only"* banner is displayed. |
-| **Jordan Lee** | `jordan@ajaia.internal` | **Unshared User**: Can be invited via the Share modal. |
+| **Jordan Lee** | `jordan@ajaia.internal` | **Editor / Owner**: Editor on Welcome doc; Owner of *"🔒 Security, Compliance & Audit Review"*. Available for testing collaborative permissions. |
 
 ---
 

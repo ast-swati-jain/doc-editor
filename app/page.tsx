@@ -128,51 +128,51 @@ export default function DashboardPage() {
       />
 
       {/* Main Workspace Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8">
         
         {/* Candidate Evaluation Header Banner */}
-        <section className="bg-gradient-to-r from-indigo-900 via-indigo-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+        <section className="bg-gradient-to-r from-indigo-900 via-indigo-800 to-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.25),transparent_70%)] pointer-events-none" />
           
-          <div className="relative z-10 space-y-4 max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <div className="relative z-10 space-y-3 sm:space-y-4 max-w-3xl">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 flex items-center gap-1 sm:gap-1.5">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300" />
                 Ajaia Assessment Submission
               </span>
-              <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-slate-200">
+              <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-white/10 text-slate-200">
                 Candidate: Swati Jain
               </span>
-              <span className="px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                 All 5 Requirements Fulfilled ✓
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight">
               Collaborative Document Editor
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Demonstrates rich-text editing, file upload (.txt, .md, .html, .json and attachments), granular sharing access controls, and persistent storage with simulated user switching.
             </p>
 
             {/* Quick feature indicator chips */}
-            <div className="flex flex-wrap gap-2 pt-2 text-xs">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/10 text-slate-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Rich-Text Editing & Autosave</span>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 text-[11px] sm:text-xs">
+              <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl bg-white/10 text-slate-200">
+                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
+                <span>Rich-Text & Autosave</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/10 text-slate-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>File Upload & Doc Import</span>
+              <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl bg-white/10 text-slate-200">
+                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
+                <span>File Upload & Import</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/10 text-slate-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Owner vs Editor vs Viewer Sharing</span>
+              <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl bg-white/10 text-slate-200">
+                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
+                <span>Granular Roles & Sharing</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/10 text-slate-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Zero-Config Resilient Persistence</span>
+              <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-xl bg-white/10 text-slate-200">
+                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
+                <span>Resilient Persistence</span>
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function DashboardPage() {
         {/* Quick Start Templates */}
         <section className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">
+            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
               Start a new document
             </h2>
             <button
@@ -193,21 +193,21 @@ export default function DashboardPage() {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
             
             {/* Blank Doc */}
             <button
               onClick={() => handleCreateDocument("Untitled Document", "<p></p>")}
-              className="group p-4 rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-36 cursor-pointer"
+              className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-32 sm:h-36 cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
-                <Plus className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                <p className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
                   Blank Document
                 </p>
-                <p className="text-xs text-slate-400">Clean rich-text canvas</p>
+                <p className="text-[11px] sm:text-xs text-slate-400">Clean canvas</p>
               </div>
             </button>
 
@@ -217,16 +217,16 @@ export default function DashboardPage() {
                 "📋 Product Specification & Strategy",
                 `<h1>Product Specification</h1><p><strong>Status:</strong> Draft &nbsp;|&nbsp; <strong>Author:</strong> ${currentUser.name}</p><h2>1. Problem Statement</h2><p>Describe the core user problem and market opportunity.</p><h2>2. Target Audience</h2><ul><li>Full Stack Engineers</li><li>Product Managers</li></ul><h2>3. Proposed Solution</h2><p>Key technical components and deliverables.</p>`
               )}
-              className="group p-4 rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-36 cursor-pointer"
+              className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-32 sm:h-36 cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
-                <FileCheck2 className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                <FileCheck2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
-                  Product Spec (PRD)
+                <p className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                  Product Spec
                 </p>
-                <p className="text-xs text-slate-400">Problem, scope & metrics</p>
+                <p className="text-[11px] sm:text-xs text-slate-400">Problem & metrics</p>
               </div>
             </button>
 
@@ -236,16 +236,16 @@ export default function DashboardPage() {
                 "📝 Team Sync & Meeting Notes",
                 `<h1>Weekly Team Sync</h1><p><strong>Date:</strong> ${new Date().toLocaleDateString()} &nbsp;|&nbsp; <strong>Attendees:</strong> ${currentUser.name}</p><h2>Agenda</h2><ol><li>Sprint progress review</li><li>Architectural decisions</li><li>Action items & owners</li></ol><h2>Discussion Notes</h2><p>Add key highlights here.</p>`
               )}
-              className="group p-4 rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-36 cursor-pointer"
+              className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-32 sm:h-36 cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
-                <Bookmark className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                <Bookmark className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                <p className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
                   Meeting Notes
                 </p>
-                <p className="text-xs text-slate-400">Agenda, sync & follow-ups</p>
+                <p className="text-[11px] sm:text-xs text-slate-400">Agenda & sync</p>
               </div>
             </button>
 
@@ -255,16 +255,16 @@ export default function DashboardPage() {
                 "🎯 Sprint Roadmap & Milestones",
                 `<h1>Sprint Planning & Execution</h1><h2>Goals for this Cycle</h2><ul><li>Deliver core user workflows.</li><li>Ship clean automated test coverage.</li></ul><h2>Backlog</h2><ol><li>Refactor document persistence layer</li><li>Optimize asset bundling</li></ol>`
               )}
-              className="group p-4 rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-36 cursor-pointer"
+              className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all text-left flex flex-col justify-between h-32 sm:h-36 cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
-                <FolderOpen className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                <FolderOpen className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                <p className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
                   Sprint Roadmap
                 </p>
-                <p className="text-xs text-slate-400">Goals, backlog & tasks</p>
+                <p className="text-[11px] sm:text-xs text-slate-400">Goals & tasks</p>
               </div>
             </button>
 
@@ -274,13 +274,13 @@ export default function DashboardPage() {
         {/* Documents Section with Tabs & Search */}
         <section className="space-y-4">
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 pb-3">
             
             {/* Filter Tabs */}
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl overflow-x-auto scrollbar-none w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('all')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 whitespace-nowrap ${
                   activeTab === 'all'
                     ? 'bg-white text-indigo-900 shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
@@ -291,7 +291,7 @@ export default function DashboardPage() {
 
               <button
                 onClick={() => setActiveTab('owned')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   activeTab === 'owned'
                     ? 'bg-white text-indigo-900 shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
@@ -305,7 +305,7 @@ export default function DashboardPage() {
 
               <button
                 onClick={() => setActiveTab('shared')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   activeTab === 'shared'
                     ? 'bg-white text-indigo-900 shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
@@ -320,7 +320,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Mobile Search input */}
-            <div className="block md:hidden">
+            <div className="block md:hidden w-full sm:w-auto">
               <div className="relative">
                 <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
@@ -337,7 +337,7 @@ export default function DashboardPage() {
 
           {/* Documents Grid */}
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {[1, 2, 3].map((n) => (
                 <div key={n} className="h-44 rounded-2xl bg-white border border-slate-200 p-5 animate-pulse space-y-3">
                   <div className="h-4 bg-slate-200 rounded w-2/3" />

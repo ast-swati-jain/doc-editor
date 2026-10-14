@@ -30,7 +30,7 @@ To make reviewer evaluation effortless, the application includes a **Simulated U
 | **Swati Jain** *(Active)* | `swati2003jain@gmail.com` | Candidate & Product Engineer. Owns the Welcome Doc; Editor on Alex's roadmap. |
 | **Alex Rivera** | `alex@ajaia.internal` | Engineering Lead. Owns the Q4 Sprint Doc; Editor on Swati's doc. |
 | **Taylor Kim** | `taylor@ajaia.internal` | Product Designer. Owns Design System Doc; Viewer (read-only) on Swati's doc. |
-| **Jordan Lee** | `jordan@ajaia.internal` | Security & Compliance Reviewer. Available for new invitations. |
+| **Jordan Lee** | `jordan@ajaia.internal` | Security & Compliance Lead. Owns Security Doc; Editor on Swati's doc. |
 
 ---
 

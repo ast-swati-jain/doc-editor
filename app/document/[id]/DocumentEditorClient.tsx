@@ -291,21 +291,21 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
       {/* Editor Top App Bar */}
       <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
         
-        {/* Row 1: Back, Title, Autosave Status, and Action Buttons */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3">
+        {/* Row 1: Back, Title, Autosave Status, and Desktop Action Buttons / Mobile User Avatar */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-3">
           
           {/* Left: Back & Title */}
-          <div className="flex items-center gap-3 min-w-0 flex-1">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
             <Link
               href="/"
-              className="w-9 h-9 rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 flex items-center justify-center text-slate-500 transition-colors shrink-0"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 flex items-center justify-center text-slate-500 transition-colors shrink-0"
               title="Return to documents"
             >
               <ArrowLeft className="w-4 h-4" />
             </Link>
 
             <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <input
                   type="text"
                   value={title}
@@ -314,51 +314,51 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
                   onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()}
                   disabled={isReadOnly}
                   placeholder="Untitled Document"
-                  className="font-bold text-base sm:text-lg text-slate-900 bg-transparent hover:bg-slate-50 focus:bg-white px-2 py-0.5 rounded-lg border border-transparent hover:border-slate-200 focus:border-indigo-400 focus:outline-none transition-all truncate max-w-sm sm:max-w-md"
+                  className="font-bold text-sm sm:text-base md:text-lg text-slate-900 bg-transparent hover:bg-slate-50 focus:bg-white px-1.5 sm:px-2 py-0.5 rounded-lg border border-transparent hover:border-slate-200 focus:border-indigo-400 focus:outline-none transition-all truncate w-full max-w-[160px] xs:max-w-[220px] sm:max-w-md"
                 />
 
                 {/* Status pill badge */}
                 {isReadOnly ? (
-                  <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 shrink-0">
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 shrink-0">
                     <Lock className="w-3 h-3" />
-                    Read Only
+                    <span className="hidden xs:inline">Read Only</span>
                   </span>
                 ) : saveStatus === 'saving' ? (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-indigo-600 font-medium px-2 py-0.5 bg-indigo-50 rounded-md shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-                    Saving...
+                  <span className="inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs text-indigo-600 font-medium px-1.5 sm:px-2 py-0.5 bg-indigo-50 rounded-md shrink-0">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-indigo-600 animate-pulse" />
+                    <span>Saving...</span>
                   </span>
                 ) : saveStatus === 'saved' ? (
-                  <span className="hidden sm:inline-flex items-center gap-1 text-xs text-emerald-600 font-medium px-2 py-0.5 bg-emerald-50 rounded-md shrink-0" title={`Last saved: ${lastSavedAt?.toLocaleTimeString()}`}>
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-emerald-600 font-medium px-1.5 sm:px-2 py-0.5 bg-emerald-50 rounded-md shrink-0" title={`Last saved: ${lastSavedAt?.toLocaleTimeString()}`}>
                     <Check className="w-3 h-3" />
-                    Saved
+                    <span>Saved</span>
                   </span>
                 ) : (
-                  <span className="hidden sm:inline-flex items-center gap-1 text-xs text-amber-600 font-medium px-2 py-0.5 bg-amber-50 rounded-md shrink-0">
-                    Unsaved
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-amber-600 font-medium px-1.5 sm:px-2 py-0.5 bg-amber-50 rounded-md shrink-0">
+                    <span>Unsaved</span>
                   </span>
                 )}
               </div>
 
               {/* Breadcrumb info */}
-              <div className="flex items-center gap-2 text-[11px] text-slate-400 pl-2">
-                <span>By {doc.ownerName}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-slate-400 pl-1.5 sm:pl-2 truncate">
+                <span className="truncate">By {doc.ownerName}</span>
                 <span>•</span>
-                <span>{words} words</span>
-                <span>•</span>
-                <span>{readingTimeMinutes} min read</span>
+                <span className="shrink-0">{words} words</span>
+                <span className="hidden sm:inline">•</span>
+                <span className="hidden sm:inline shrink-0">{readingTimeMinutes} min read</span>
               </div>
             </div>
           </div>
 
-          {/* Right: Actions, Share, Attachments, Versions, Export, User Switcher */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Right Desktop: Actions, Share, Attachments, Versions, Export, User Switcher */}
+          <div className="hidden md:flex items-center gap-2 shrink-0">
             
             {/* Manual Save button (if editor) */}
             {!isReadOnly && (
               <button
                 onClick={() => persistChanges(content, title, true)}
-                className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer"
                 title="Create a version snapshot (Ctrl+S)"
               >
                 <Save className="w-3.5 h-3.5 text-slate-500" />
@@ -442,7 +442,7 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
               <span>Share</span>
             </button>
 
-            {/* User Switcher Dropdown */}
+            {/* User Switcher Dropdown (Desktop) */}
             <div className="relative border-l border-slate-200 pl-2">
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
@@ -460,7 +460,7 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
               {userDropdownOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setUserDropdownOpen(false)} />
-                  <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-200 p-2 z-50">
+                  <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-200 p-2 z-50 animate-in fade-in">
                     <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
                       Switch Role Context
                     </p>
@@ -518,22 +518,182 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
                 </>
               )}
             </div>
-
           </div>
+
+          {/* Right Mobile: User Switcher Avatar */}
+          <div className="relative flex md:hidden items-center shrink-0">
+            <button
+              onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+              className="flex items-center gap-1 p-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+              title={`Testing as: ${currentUser.name}`}
+            >
+              <img
+                src={currentUser.avatar}
+                alt={currentUser.name}
+                className="w-7 h-7 rounded-full border border-slate-200 bg-white"
+              />
+              <ChevronDown className="w-3 h-3 text-slate-400" />
+            </button>
+
+            {userDropdownOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setUserDropdownOpen(false)} />
+                <div className="absolute right-0 top-full mt-2 w-[calc(100vw-1.5rem)] max-w-xs bg-white rounded-2xl shadow-xl border border-slate-200 p-2 z-50 animate-in fade-in">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
+                    Switch Role Context
+                  </p>
+                  <div className="space-y-1 max-h-52 overflow-y-auto">
+                    {allUsers.map((u) => (
+                      <button
+                        key={u.id}
+                        onClick={() => {
+                          setCurrentUser(u);
+                          setUserDropdownOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-left transition-colors cursor-pointer ${
+                          u.email.toLowerCase() === currentUser.email.toLowerCase()
+                            ? 'bg-indigo-50 text-indigo-950 font-medium'
+                            : 'hover:bg-slate-50 text-slate-700'
+                        }`}
+                      >
+                        <img src={u.avatar} alt="" className="w-6 h-6 rounded-full shrink-0" />
+                        <div className="overflow-hidden">
+                          <p className="text-xs font-semibold truncate">{u.name}</p>
+                          <p className="text-[10px] text-slate-400 truncate">{u.email}</p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="pt-2 mt-1 border-t border-slate-100">
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        if (customEmail.trim()) {
+                          switchUserByEmail(customEmail.trim());
+                          setCustomEmail('');
+                          setUserDropdownOpen(false);
+                        }
+                      }}
+                      className="flex gap-1"
+                    >
+                      <input
+                        type="email"
+                        placeholder="Switch to email..."
+                        value={customEmail}
+                        onChange={(e) => setCustomEmail(e.target.value)}
+                        className="flex-1 px-2 py-1 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                      />
+                      <button
+                        type="submit"
+                        className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg shrink-0"
+                      >
+                        Act As
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+        </div>
+
+        {/* Row 2 (Mobile only): Clean Touch-Friendly Action Bar */}
+        <div className="flex md:hidden items-center justify-between gap-1.5 px-3 py-1.5 border-t border-slate-100 bg-slate-50/70 overflow-x-auto scrollbar-none">
+          <button
+            onClick={() => setIsShareModalOpen(true)}
+            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shrink-0 shadow-2xs"
+          >
+            <Share2 className="w-3 h-3" />
+            <span>Share</span>
+          </button>
+
+          <button
+            onClick={() => setIsAttachmentsOpen(true)}
+            className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 shrink-0 relative"
+          >
+            <Paperclip className="w-3 h-3 text-slate-500" />
+            <span>Files</span>
+            {doc.attachments?.length > 0 && (
+              <span className="w-3.5 h-3.5 rounded-full bg-indigo-600 text-white text-[8px] font-bold flex items-center justify-center">
+                {doc.attachments.length}
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => setIsVersionsOpen(true)}
+            className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 shrink-0"
+          >
+            <History className="w-3 h-3 text-slate-500" />
+            <span>History</span>
+          </button>
+
+          {/* Mobile Export */}
+          <div className="relative">
+            <button
+              onClick={() => setExportOpen(!exportOpen)}
+              className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 shrink-0"
+            >
+              <Download className="w-3 h-3 text-slate-500" />
+              <span>Export</span>
+            </button>
+
+            {exportOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setExportOpen(false)} />
+                <div className="absolute right-0 mt-1 w-44 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in">
+                  <button
+                    onClick={handleExportMarkdown}
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50"
+                  >
+                    <FileCode className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Markdown (.md)</span>
+                  </button>
+                  <button
+                    onClick={handleExportHTML}
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-slate-400" />
+                    <span>HTML (.html)</span>
+                  </button>
+                  <button
+                    onClick={() => { window.print(); setExportOpen(false); }}
+                    className="w-full flex items-center gap-2 px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50 border-t border-slate-100"
+                  >
+                    <Printer className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Print</span>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+
+          {!isReadOnly && (
+            <button
+              onClick={() => persistChanges(content, title, true)}
+              className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 shrink-0"
+              title="Save Snapshot"
+            >
+              <Save className="w-3 h-3 text-slate-500" />
+              <span>Save</span>
+            </button>
+          )}
         </div>
       </header>
 
       {/* Read-Only Notice Banner */}
       {isReadOnly && (
-        <div className="bg-amber-500/10 border-b border-amber-200 py-2.5 px-4">
+        <div className="bg-amber-500/10 border-b border-amber-200 py-2 sm:py-2.5 px-3 sm:px-4">
           <div className="max-w-4xl mx-auto flex items-center justify-between text-xs text-amber-900">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <Eye className="w-4 h-4 text-amber-700 shrink-0" />
-              <span>
-                <strong>View-Only Mode:</strong> You are viewing this document with read-only access. You cannot make edits.
+              <span className="text-[11px] sm:text-xs">
+                <strong>View-Only Mode:</strong> You are viewing this document with read-only access.
               </span>
             </div>
-            <span className="text-amber-700 text-[11px] font-medium hidden sm:inline">
+            <span className="text-amber-700 text-[10px] sm:text-[11px] font-medium hidden md:inline">
               Document owned by {doc.ownerName}
             </span>
           </div>
@@ -541,7 +701,7 @@ export default function DocumentEditorClient({ id }: DocumentEditorClientProps) 
       )}
 
       {/* Document Sheet Editor Canvas */}
-      <main className="flex-1 py-6 px-4 flex flex-col items-center overflow-y-auto space-y-3">
+      <main className="flex-1 py-3 px-2 sm:py-6 sm:px-4 flex flex-col items-center overflow-y-auto space-y-3">
         
         {/* On-screen Attached Files Bar */}
         {doc.attachments && doc.attachments.length > 0 && (

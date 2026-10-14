@@ -45,22 +45,22 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Brand & Logo */}
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-sm shadow-indigo-200 transition-transform group-hover:scale-105">
-              <FileText className="w-5 h-5" />
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-sm shadow-indigo-200 transition-transform group-hover:scale-105 shrink-0">
+              <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-lg tracking-tight text-slate-900">Ajaia Docs</span>
-                <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-bold text-base sm:text-lg tracking-tight text-slate-900">Ajaia Docs</span>
+                <span className="text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100 hidden sm:inline-block">
                   AI-Native
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 -mt-0.5 hidden sm:block">
+              <p className="text-[10px] sm:text-[11px] text-slate-500 -mt-0.5 hidden md:block">
                 Product Engineer Assessment · Swati Jain
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function Navbar({
 
         {/* Search Bar (if on dashboard) */}
         {!isEditorPage && onSearchChange && (
-          <div className="flex-1 max-w-md mx-4 hidden md:block">
+          <div className="flex-1 max-w-md mx-2 sm:mx-4 hidden md:block">
             <div className="relative">
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
@@ -77,35 +77,36 @@ export default function Navbar({
                 placeholder="Search documents by title..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all text-slate-800 placeholder-slate-400"
+                className="w-full pl-10 pr-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all text-slate-800 placeholder-slate-400"
               />
             </div>
           </div>
         )}
 
         {/* Action Controls & User Switcher */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           
           {!isEditorPage && (
             <>
               {onImportClick && (
                 <button
                   onClick={onImportClick}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm cursor-pointer"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm cursor-pointer"
                   title="Import .txt, .md, .html or .json file"
                 >
-                  <Upload className="w-4 h-4 text-slate-500" />
-                  <span className="hidden sm:inline">Import File</span>
+                  <Upload className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500" />
+                  <span className="hidden sm:inline">Import</span>
                 </button>
               )}
 
               {onNewDoc && (
                 <button
                   onClick={onNewDoc}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-100 cursor-pointer"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-100 cursor-pointer"
                 >
-                  <Plus className="w-4 h-4" />
-                  <span>New Doc</span>
+                  <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="hidden xs:inline">New</span>
+                  <span className="inline xs:hidden">New</span>
                 </button>
               )}
             </>
@@ -115,13 +116,13 @@ export default function Navbar({
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2 pl-2 pr-3 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all cursor-pointer text-left"
+              className="flex items-center gap-1.5 sm:gap-2 p-1 sm:pl-2 sm:pr-3 sm:py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-all cursor-pointer text-left"
               title="Switch user to test role-based sharing & ownership"
             >
               <img
                 src={currentUser.avatar}
                 alt={currentUser.name}
-                className="w-7 h-7 rounded-full bg-slate-200 border border-white shadow-xs"
+                className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-200 border border-white shadow-xs shrink-0"
               />
               <div className="hidden lg:block">
                 <p className="text-xs font-semibold text-slate-800 leading-tight">
@@ -131,7 +132,7 @@ export default function Navbar({
                   {currentUser.email}
                 </p>
               </div>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 ml-0.5" />
+              <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
             </button>
 
             {dropdownOpen && (
@@ -140,7 +141,7 @@ export default function Navbar({
                   className="fixed inset-0 z-40" 
                   onClick={() => setDropdownOpen(false)} 
                 />
-                <div className="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute right-0 mt-2 w-[calc(100vw-1.5rem)] max-w-xs sm:w-80 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                   <div className="px-3.5 py-2 border-b border-slate-100">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
                       <Users className="w-3.5 h-3.5 text-indigo-500" />

@@ -70,43 +70,43 @@ export default function VersionsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-150">
+      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-150">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-100 bg-slate-50/50 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
               <History className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-900">Version History</h3>
-              <p className="text-xs text-slate-500">View and restore previous document snapshots</p>
+            <div className="min-w-0">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 truncate">Version History</h3>
+              <p className="text-[11px] sm:text-xs text-slate-500">View and restore previous document snapshots</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer shrink-0 ml-2"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {error && (
-          <div className="m-6 mb-0 p-3 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-xl flex items-center gap-2">
+          <div className="m-4 sm:m-6 mb-0 p-3 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-xl flex items-center gap-2">
             <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Body with two columns: Version list & Version preview */}
-        <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+        <div className="flex-1 overflow-y-auto md:overflow-hidden grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
           
           {/* Version List */}
-          <div className="p-4 overflow-y-auto space-y-2 max-h-[400px] md:max-h-[500px]">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1 mb-2">
+          <div className="p-3 sm:p-4 overflow-y-auto space-y-2 max-h-[200px] md:max-h-[500px]">
+            <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1 mb-1.5">
               Snapshots ({document.versions?.length || 0})
             </p>
 
@@ -126,25 +126,25 @@ export default function VersionsModal({
                   <button
                     key={v.id}
                     onClick={() => setSelectedVersion(v)}
-                    className={`w-full text-left p-3 rounded-xl border transition-all cursor-pointer ${
+                    className={`w-full text-left p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer ${
                       isSelected
                         ? 'bg-indigo-50/80 border-indigo-200 text-indigo-950 shadow-xs'
                         : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold">{v.summary || `Version ${document.versions.length - index}`}</span>
+                      <span className="text-xs font-semibold truncate">{v.summary || `Version ${document.versions.length - index}`}</span>
                       {index === 0 && (
-                        <span className="text-[9px] bg-indigo-100 text-indigo-700 font-bold px-1.5 py-0.2 rounded">
+                        <span className="text-[9px] bg-indigo-100 text-indigo-700 font-bold px-1.5 py-0.2 rounded shrink-0 ml-1">
                           Current
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-500 mt-1">
                       <Clock className="w-3 h-3 text-slate-400" />
                       <span>{formattedDate}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-0.5">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-400 mt-0.5">
                       <UserIcon className="w-3 h-3" />
                       <span>{v.createdBy}</span>
                     </div>
@@ -155,13 +155,13 @@ export default function VersionsModal({
           </div>
 
           {/* Version Preview */}
-          <div className="p-6 md:col-span-2 overflow-y-auto max-h-[400px] md:max-h-[500px] flex flex-col justify-between bg-slate-50/40">
+          <div className="p-4 sm:p-6 md:col-span-2 overflow-y-auto max-h-[350px] md:max-h-[500px] flex flex-col justify-between bg-slate-50/40">
             {selectedVersion ? (
               <div>
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-200">
                   <div>
                     <h4 className="font-bold text-slate-800 text-sm">{selectedVersion.title}</h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-[11px] sm:text-xs text-slate-500">
                       Saved by {selectedVersion.createdBy} on {new Date(selectedVersion.createdAt).toLocaleString()}
                     </p>
                   </div>
@@ -169,7 +169,7 @@ export default function VersionsModal({
                     <button
                       onClick={() => handleRestore(selectedVersion.id)}
                       disabled={loading}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-xs cursor-pointer disabled:opacity-50"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-xs cursor-pointer disabled:opacity-50 shrink-0"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>{loading ? 'Restoring...' : 'Restore'}</span>
@@ -178,7 +178,7 @@ export default function VersionsModal({
                 </div>
 
                 <div 
-                  className="prose prose-sm max-w-none p-4 bg-white rounded-xl border border-slate-200 text-slate-800 leading-relaxed min-h-[250px]"
+                  className="prose prose-sm max-w-none p-3 sm:p-4 bg-white rounded-xl border border-slate-200 text-slate-800 leading-relaxed min-h-[180px] sm:min-h-[250px]"
                   dangerouslySetInnerHTML={{ __html: selectedVersion.content || '<p class="italic text-slate-400">Empty content</p>' }}
                 />
               </div>

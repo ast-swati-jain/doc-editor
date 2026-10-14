@@ -21,6 +21,13 @@
         "name": "Taylor Kim",
         "role": "viewer",
         "addedAt": "2026-10-14T02:53:50.284Z"
+      },
+      {
+        "userId": "usr_jordan",
+        "email": "jordan@ajaia.internal",
+        "name": "Jordan Lee",
+        "role": "editor",
+        "addedAt": "2026-10-14T16:46:51.982Z"
       }
     ],
     "attachments": [
@@ -93,5 +100,28 @@
     "createdAt": "2026-10-13T23:53:50.284Z",
     "updatedAt": "2026-10-14T15:43:26.818Z",
     "lastModifiedBy": "Taylor Kim"
+  },
+  {
+    "id": "doc-security-04",
+    "title": "🔒 Security, Compliance & Audit Review",
+    "content": "<h2>Security & Compliance Audit</h2><p>Owned by <strong>Jordan Lee</strong>. Shared with <strong>Swati Jain</strong> as <em>Editor</em>.</p><h3>Verified Policies:</h3><ul><li>Role-Based Access Control enforced.</li><li>Audit Trail & Versions recorded.</li></ul>",
+    "plainText": "Security & Compliance Audit. Owned by Jordan Lee...",
+    "ownerId": "usr_jordan",
+    "ownerEmail": "jordan@ajaia.internal",
+    "ownerName": "Jordan Lee",
+    "collaborators": [
+      {
+        "userId": "usr_swati",
+        "email": "swati2003jain@gmail.com",
+        "name": "Swati Jain",
+        "role": "editor",
+        "addedAt": "2026-10-14T16:46:51.983Z"
+      }
+    ],
+    "attachments": [],
+    "versions": [],
+    "createdAt": "2026-10-14T16:46:51.983Z",
+    "updatedAt": "2026-10-14T16:46:51.983Z",
+    "lastModifiedBy": "Jordan Lee"
   }
 ]

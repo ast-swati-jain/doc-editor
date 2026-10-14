@@ -115,34 +115,34 @@ export default function ShareModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150">
       <div 
         className="fixed inset-0" 
         onClick={onClose} 
       />
       
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-in zoom-in-95 duration-150">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-in zoom-in-95 duration-150 max-h-[90vh] flex flex-col">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-100 bg-slate-50/50 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
               <UserPlus className="w-4 h-4" />
             </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-900">Share &quot;{document.title}&quot;</h3>
-              <p className="text-xs text-slate-500">Manage who can view or edit this document</p>
+            <div className="min-w-0">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 truncate">Share &quot;{document.title}&quot;</h3>
+              <p className="text-[11px] sm:text-xs text-slate-500">Manage who can view or edit this document</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer shrink-0 ml-2"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4 overflow-y-auto">
           {error && (
             <div className="p-3 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-xl">
               {error}
@@ -178,7 +178,7 @@ export default function ShareModal({
               <label className="block text-xs font-semibold text-slate-700">
                 Invite by Email:
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   value={emailInput}
@@ -186,21 +186,23 @@ export default function ShareModal({
                   placeholder="colleague@ajaia.internal or gmail"
                   className="flex-1 px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-slate-800"
                 />
-                <select
-                  value={roleInput}
-                  onChange={(e) => setRoleInput(e.target.value as UserRole)}
-                  className="px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-700 cursor-pointer"
-                >
-                  <option value="editor">Editor (Can edit)</option>
-                  <option value="viewer">Viewer (Read-only)</option>
-                </select>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-colors shadow-xs cursor-pointer shrink-0"
-                >
-                  {loading ? 'Adding...' : 'Invite'}
-                </button>
+                <div className="flex gap-2">
+                  <select
+                    value={roleInput}
+                    onChange={(e) => setRoleInput(e.target.value as UserRole)}
+                    className="flex-1 sm:flex-none px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-700 cursor-pointer"
+                  >
+                    <option value="editor">Editor (Can edit)</option>
+                    <option value="viewer">Viewer (Read-only)</option>
+                  </select>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 disabled:opacity-50 transition-colors shadow-xs cursor-pointer shrink-0"
+                  >
+                    {loading ? 'Adding...' : 'Invite'}
+                  </button>
+                </div>
               </div>
 
               {/* Quick suggestions pills */}

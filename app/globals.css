@@ -95,6 +95,56 @@ body {
   border-radius: 4px;
 }
 
+/* Mobile & Tablet Responsive Optimizations */
+@media (max-width: 768px) {
+  .ql-toolbar.ql-snow {
+    padding: 6px 10px !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none;
+  }
+  .ql-toolbar.ql-snow::-webkit-scrollbar {
+    display: none;
+  }
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 8px !important;
+    flex-shrink: 0;
+  }
+  .ql-editor {
+    padding: 24px 20px !important;
+    min-height: 500px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ql-editor.ql-blank::before {
+    left: 20px !important;
+    font-size: 14px;
+  }
+  .ql-editor h1 {
+    font-size: 1.6rem !important;
+  }
+  .ql-editor h2 {
+    font-size: 1.3rem !important;
+  }
+  .ql-editor h3 {
+    font-size: 1.15rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ql-editor {
+    padding: 16px 14px !important;
+    min-height: 380px;
+  }
+  .ql-editor.ql-blank::before {
+    left: 14px !important;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
