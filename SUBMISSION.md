@@ -6,6 +6,7 @@
 > **Application:** Collaborative Document Editor  
 > **Live Product URL:** [https://doc-editor-coral-xi.vercel.app](https://doc-editor-coral-xi.vercel.app) *(or local `http://localhost:3000`)*  
 > **Walkthrough Video URL:** [https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0](https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0)  
+> **Google Drive Folder:** [https://drive.google.com/drive/folders/1Hn5cDXbgfe6RAnrKx3zjbCWt9jCP11M3?usp=sharing](https://drive.google.com/drive/folders/1Hn5cDXbgfe6RAnrKx3zjbCWt9jCP11M3?usp=sharing)  
 
 ---
 
