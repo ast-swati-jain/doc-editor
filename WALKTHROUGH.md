@@ -10,9 +10,9 @@
 ## 🎬 Video Recording Link
 
 ```
-https://youtu.be/placeholder-swati-jain-ajaia-doc-editor
+https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0
 ```
-*(Replace the URL above and in `WALKTHROUGH_URL.txt` with your public Loom or YouTube link before submitting to hiring teams).*
+- **Loom URL:** [Watch Swati Jain's Walkthrough Video](https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0)
 
 ---
 

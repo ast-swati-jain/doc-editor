@@ -5,7 +5,7 @@
 > **Email:** [swati2003jain@gmail.com](mailto:swati2003jain@gmail.com)  
 > **Application:** Collaborative Document Editor  
 > **Live Product URL:** [https://doc-editor-coral-xi.vercel.app](https://doc-editor-coral-xi.vercel.app) *(or local `http://localhost:3000`)*  
-> **Walkthrough Video URL:** Listed in [WALKTHROUGH.md](file:///c:/Projects/doc-editor/WALKTHROUGH.md) and [WALKTHROUGH_URL.txt](file:///c:/Projects/doc-editor/WALKTHROUGH_URL.txt)
+> **Walkthrough Video URL:** [https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0](https://www.loom.com/share/6b5c511881a545c79e7799effc6f0ed0)  
 
 ---
 
