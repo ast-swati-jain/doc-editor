@@ -1,0 +1,97 @@
+[
+  {
+    "id": "doc-welcome-01",
+    "title": "✨ Welcome to Ajaia Doc Editor",
+    "content": "<h1>Ajaia&nbsp;Collaborative&nbsp;Document&nbsp;Editor</h1><p>Welcome!&nbsp;This&nbsp;application&nbsp;was&nbsp;crafted&nbsp;by&nbsp;<strong>Swati&nbsp;Jain</strong>&nbsp;for&nbsp;the&nbsp;<em>AI-Native&nbsp;Full&nbsp;Stack&nbsp;Product&nbsp;Engineer</em>&nbsp;assessment&nbsp;at&nbsp;Ajaia.</p><p></p><h2>🔥&nbsp;What&nbsp;you&nbsp;can&nbsp;test&nbsp;right&nbsp;now:</h2><ul><li><strong>Rich-Text&nbsp;Editing:</strong>&nbsp;Format&nbsp;headings,&nbsp;lists,&nbsp;bold,&nbsp;italics,&nbsp;underline,&nbsp;code&nbsp;blocks,&nbsp;and&nbsp;alignments.</li><li><strong>Autosave&nbsp;&amp;&nbsp;Status:</strong>&nbsp;Type&nbsp;anywhere&nbsp;and&nbsp;watch&nbsp;the&nbsp;top&nbsp;status&nbsp;badge&nbsp;indicate&nbsp;real-time&nbsp;debounced&nbsp;saving.</li><li><strong>Simulated&nbsp;User&nbsp;Switching:</strong>&nbsp;Use&nbsp;the&nbsp;top-right&nbsp;profile&nbsp;dropdown&nbsp;to&nbsp;switch&nbsp;between&nbsp;<em>Swati&nbsp;Jain</em>,&nbsp;<em>Alex&nbsp;Rivera</em>,&nbsp;and&nbsp;<em>Taylor&nbsp;Kim</em>.</li><li><strong>Document&nbsp;Sharing&nbsp;&amp;&nbsp;Permissions:</strong>&nbsp;Click&nbsp;<strong>Share</strong>&nbsp;to&nbsp;grant&nbsp;access&nbsp;with&nbsp;<em>Editor</em>&nbsp;or&nbsp;<em>Viewer</em>&nbsp;privileges.&nbsp;Notice&nbsp;read-only&nbsp;mode&nbsp;for&nbsp;viewers!</li><li><strong>File&nbsp;Upload&nbsp;&amp;&nbsp;Import:</strong>&nbsp;Import&nbsp;.txt&nbsp;or&nbsp;.md&nbsp;documents&nbsp;into&nbsp;editable&nbsp;drafts&nbsp;or&nbsp;attach&nbsp;files&nbsp;to&nbsp;this&nbsp;document.</li><li><strong>Exporting:</strong>&nbsp;Export&nbsp;documents&nbsp;directly&nbsp;to&nbsp;Markdown&nbsp;or&nbsp;HTML.</li></ul><p></p><blockquote>Built&nbsp;with&nbsp;Next.js&nbsp;16,&nbsp;React&nbsp;19,&nbsp;Tailwind&nbsp;CSS,&nbsp;and&nbsp;a&nbsp;resilient&nbsp;persistence&nbsp;engine.</blockquote>",
+    "plainText": "Ajaia Collaborative Document Editor. Welcome! This application was crafted by Swati Jain...",
+    "ownerId": "usr_swati",
+    "ownerEmail": "swati2003jain@gmail.com",
+    "ownerName": "Swati Jain",
+    "collaborators": [
+      {
+        "userId": "usr_alex",
+        "email": "alex@ajaia.internal",
+        "name": "Alex Rivera",
+        "role": "editor",
+        "addedAt": "2026-10-13T14:53:50.282Z"
+      },
+      {
+        "userId": "usr_taylor",
+        "email": "taylor@ajaia.internal",
+        "name": "Taylor Kim",
+        "role": "viewer",
+        "addedAt": "2026-10-14T02:53:50.284Z"
+      }
+    ],
+    "attachments": [
+      {
+        "id": "att-spec-01",
+        "name": "product-spec-v1.txt",
+        "size": 2048,
+        "type": "text/plain",
+        "dataUrl": "data:text/plain;base64,QWphaWEgRG9jIEVkaXRvciBQcm9kdWN0IFNwZWNpZmljYXRpb24gdjE=",
+        "uploadedAt": "2026-10-14T09:53:50.284Z",
+        "uploadedBy": "Swati Jain"
+      }
+    ],
+    "versions": [
+      {
+        "id": "ver-01",
+        "title": "✨ Welcome to Ajaia Doc Editor",
+        "content": "<h1>Ajaia Collaborative Document Editor (Initial Draft)</h1>",
+        "createdAt": "2026-10-13T14:53:50.284Z",
+        "createdBy": "Swati Jain",
+        "summary": "Initial document creation"
+      }
+    ],
+    "createdAt": "2026-10-12T14:53:50.284Z",
+    "updatedAt": "2026-10-14T15:41:10.186Z",
+    "lastModifiedBy": "Swati Jain"
+  },
+  {
+    "id": "doc-sprint-02",
+    "title": "🎯 Q4 Engineering Sprint & Milestones",
+    "content": "<h2>Q4&nbsp;Engineering&nbsp;Roadmap</h2><p>This&nbsp;document&nbsp;is&nbsp;owned&nbsp;by&nbsp;<strong>Alex&nbsp;Rivera</strong>&nbsp;and&nbsp;shared&nbsp;with&nbsp;<strong>Swati&nbsp;Jain</strong>&nbsp;as&nbsp;an&nbsp;<em>Editor</em>.</p><h3>Key&nbsp;Deliverables:</h3><ol><li>Document&nbsp;persistence&nbsp;layer&nbsp;with&nbsp;zero-config&nbsp;fallback.</li><li>Instant&nbsp;simulated&nbsp;auth&nbsp;for&nbsp;smooth&nbsp;reviewer&nbsp;evaluations.</li><li>Granular&nbsp;access&nbsp;controls:&nbsp;Owner,&nbsp;Editor,&nbsp;Viewer.</li><li>Multi-format&nbsp;file&nbsp;upload&nbsp;and&nbsp;text&nbsp;import.</li></ol><p><em>Status:&nbsp;Active&nbsp;sprint&nbsp;in&nbsp;progress.</em></p>",
+    "plainText": "Q4 Engineering Roadmap. This document is owned by Alex Rivera...",
+    "ownerId": "usr_alex",
+    "ownerEmail": "alex@ajaia.internal",
+    "ownerName": "Alex Rivera",
+    "collaborators": [
+      {
+        "userId": "usr_swati",
+        "email": "swati2003jain@gmail.com",
+        "name": "Swati Jain",
+        "role": "editor",
+        "addedAt": "2026-10-13T18:53:50.284Z"
+      }
+    ],
+    "attachments": [],
+    "versions": [],
+    "createdAt": "2026-10-13T08:53:50.284Z",
+    "updatedAt": "2026-10-14T15:41:27.550Z",
+    "lastModifiedBy": "Swati Jain"
+  },
+  {
+    "id": "doc-design-03",
+    "title": "🎨 Design System & UI Specifications",
+    "content": "<h2>Design&nbsp;Guidelines&nbsp;&amp;&nbsp;System&nbsp;Tokens</h2><p>Owned&nbsp;by&nbsp;<strong>Taylor&nbsp;Kim</strong>.&nbsp;Shared&nbsp;with&nbsp;<strong>Swati&nbsp;Jain</strong>&nbsp;as&nbsp;<em>Viewer</em>&nbsp;(read-only&nbsp;mode).</p><p>When&nbsp;Swati&nbsp;opens&nbsp;this&nbsp;document,&nbsp;notice&nbsp;how&nbsp;the&nbsp;toolbar&nbsp;is&nbsp;automatically&nbsp;disabled&nbsp;and&nbsp;marked&nbsp;with&nbsp;a&nbsp;<strong>Read&nbsp;Only</strong>&nbsp;pill&nbsp;badge!</p><p></p><h3>Color&nbsp;Tokens:</h3><ul><li><strong>Primary&nbsp;Brand:</strong>&nbsp;Indigo&nbsp;600&nbsp;(#4f46e5)</li><li><strong>Neutral&nbsp;Background:</strong>&nbsp;Slate&nbsp;50/100&nbsp;(#f8fafc)</li><li><strong>Text&nbsp;Primary:</strong>&nbsp;Slate&nbsp;900&nbsp;(#0f172a)</li></ul>",
+    "plainText": "Design Guidelines & System Tokens. Owned by Taylor Kim...",
+    "ownerId": "usr_taylor",
+    "ownerEmail": "taylor@ajaia.internal",
+    "ownerName": "Taylor Kim",
+    "collaborators": [
+      {
+        "userId": "usr_swati",
+        "email": "swati2003jain@gmail.com",
+        "name": "Swati Jain",
+        "role": "viewer",
+        "addedAt": "2026-10-14T04:53:50.284Z"
+      }
+    ],
+    "attachments": [],
+    "versions": [],
+    "createdAt": "2026-10-13T23:53:50.284Z",
+    "updatedAt": "2026-10-14T15:43:26.818Z",
+    "lastModifiedBy": "Taylor Kim"
+  }
+]

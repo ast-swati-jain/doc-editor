@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/document-service.test.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.57.0",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-quill-new": "^3.8.3"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
